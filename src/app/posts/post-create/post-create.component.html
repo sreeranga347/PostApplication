@@ -1,0 +1,28 @@
+<div>
+   
+<div class="divClass">
+   <div class="divClassHeader"> 
+      <span style="font-weight: bold;">Create Post Form</span>
+   </div>
+<form [formGroup]="myForm" (ngSubmit)="createPost()"  style="text-align: center; border: 2px" title="Create Post ">
+   <!-- <label> Enter Post Id -->
+      
+    <mat-form-field >
+          <textarea matInput  placeholder = "Enter Post ID" formControlName="id" ></textarea>
+   </mat-form-field>
+<!-- </label> -->
+   <br>
+   <mat-form-field  >
+      <textarea matInput placeholder = "Enter Post Title" formControlName="title"></textarea>
+   </mat-form-field>
+<br>
+   <mat-form-field >
+      <textarea matInput placeholder = "Enter Post Content" formControlName="content"></textarea>
+   </mat-form-field>
+<br>
+
+   <button mat-raised-button>SUBMIT</button>
+</form>
+
+</div>
+</div>

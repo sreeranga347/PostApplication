@@ -1,0 +1,40 @@
+.form
+{
+  
+    align-content: center;
+    width: 20%;
+    border-style:solid; 
+    border-width:1px; 
+    border-color:#000000; 
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    background-color : #4CAF50;
+    color: blanchedalmond;
+    
+}
+.divClass{
+    display: inline-block; 
+    align-content: center;
+    margin: 0 auto;
+
+    /* border: black ;
+    border-width: 1px;
+    border-style: solid; */
+    width: 20%;
+}
+.divClassHeader{
+    align-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #536DFE;
+    width: 100%;
+    color:cornsilk;
+}
+
+div{
+    width: 100%;
+    text-align: center;
+}
