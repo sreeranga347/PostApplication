@@ -14,6 +14,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { LoginComponent } from './auth/login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AlertCustomDialogComponent } from './customeDialog/alert-custom-dialog/alert-custom-dialog.component';
+import { MatCardModule } from '@angular/material/card';
+import { HomeComponent } from './mainPage/home/home.component'
+
+
 
 
 
@@ -21,7 +30,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   declarations: [
     AppComponent,
     PostCreateComponent,
-    PostListComponent
+    PostListComponent,
+    SignUpComponent,
+    LoginComponent,
+    AlertCustomDialogComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +45,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatInputModule,
     MatTableModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatCardModule
     
     
     

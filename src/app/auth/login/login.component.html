@@ -1,0 +1,35 @@
+<div class="divCenter">
+    <div class="mainDev">
+        <mat-card>
+            <h1 class="loginHeader">Login</h1>
+            <form #loginForm="ngForm" (ngSubmit)="login()" class="formContent">
+                <mat-form-field>
+                    <input matInput type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required
+                        email #email="ngModel">
+                    <mat-error *ngIf="email.errors?.required">
+                        Email id is required
+                    </mat-error>
+                    <mat-icon matSuffix aria-label="email" class="maIcDelet">email</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field >
+                    <input matInput type="password" placeholder="Password" [(ngModel)]="user.password" name="password"
+                        required #password="ngModel">
+                    <mat-error *ngIf="password.errors?.required">
+                        Password is required
+                    </mat-error>
+
+                    <mat-icon matSuffix aria-label="lock" class="maIcDelet">lock</mat-icon>
+
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Sign In</button>
+            </form>
+            <div class="signDiv">
+                <h4 style="text-align: center;">New User?
+                    <a routerLink="/sign-up" class="sign"> Sign-up</a>
+                </h4>
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+.contentCenter {
+    display: inline-block;
+    align-content: center;
+    margin: 0 auto;
+    background-color: #536DFE;
+    /* width: 100%; */
+}
+
+.divCenter {
+    position: relative;
+    /* text-align: center; */
+    width: 100%;
+    height: 650px;
+    background-color: deepskyblue;
+}
+
+.mainDev {
+    width: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+button {
+    margin-top: 18px;
+    width: 75%;
+    padding: 6px;
+    background-color: #536DFE;
+    color: blanchedalmond;
+}
+.loginHeader{
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+.sign{
+    color:#536DFE;
+    font-weight: bold;
+}
+.signDiv{
+    margin-top: 16px;
+}
+.formContent{
+     text-align: center;
+     /* padding: 10px; */
+
+}

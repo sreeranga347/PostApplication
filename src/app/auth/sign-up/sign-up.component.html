@@ -1,0 +1,36 @@
+<div class="divCenter">
+    <div class="mainDev">
+        <mat-card>
+            <h1 class="header">Create User</h1>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="formContent">
+                <mat-form-field>
+                    <input matInput type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required
+                        email #email="ngModel">
+                    <mat-error *ngIf="email.errors?.required">
+                        Email id is required
+                    </mat-error>
+                    <mat-error *ngIf="email.errors?.email">
+                        Email must be a valid email address
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="tp-full-width">
+                    <input matInput type="password" placeholder="Password" [(ngModel)]="user.password" name="password"
+                        required minlength="6" #password="ngModel">
+                    <mat-error *ngIf="password.errors?.required">
+                        Password is required
+                    </mat-error>
+                    <mat-error *ngIf="password.errors?.minlength">
+                        Password must be at least 6 characters
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Register</button>
+            </form>
+            <div class="signDiv">
+            <h4 style="text-align: center;"><a routerLink=""class="sign"> Sign-In</a> </h4>
+            </div>
+        </mat-card>
+    </div>
+
+</div>

@@ -18,11 +18,7 @@ button{
 .divClass{
     display: inline-block; 
     align-content: center;
-    margin: 0 auto;
-
-    /* border: black ;
-    border-width: 1px;
-    border-style: solid; */
+    margin: 0 auto; 
     width: 20%;
 }
 .divClassHeader{
