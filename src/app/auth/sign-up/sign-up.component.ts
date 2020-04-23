@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { AuthService } from '../auth.service';
 import { AlertService } from 'src/app/customeDialog/alert.service';
+import { error } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -13,16 +14,19 @@ export class SignUpComponent implements OnInit {
 
   user = new User();
 
-  constructor(private authService: AuthService,private alertService:AlertService) { }
+  constructor(private authService: AuthService, private alertService: AlertService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    let msg = this.authService.createUser(this.user);
-    this.alertService.openDialog(msg);
-    
-
+    this.authService.createUser(this.user).subscribe(response => {
+      this.alertService.openDialog(response['message'])
+    },
+      error => {
+        this.alertService.openDialog(error.error.message)
+      }
+    )
   }
 
 }

@@ -1,0 +1,7 @@
+<mat-toolbar class="mat_header" >
+    <span style="flex: 1 1 auto;"></span>
+    <button mat-raised-button routerLink="/login" *ngIf="!isLogin" class="loginButton">Login</button>
+    <button mat-raised-button routerLink="/sign-up" *ngIf="!isLogin" class="signUpButton">Sign-Up</button>
+    <!-- <button mat-raised-button  *ngIf="isLogin">New Post</button> -->
+    <button mat-raised-button routerLink="" *ngIf="isLogin" (click)="logOut()" class="logOutButton">Logout</button>
+ </mat-toolbar>

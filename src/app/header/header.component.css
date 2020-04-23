@@ -1,0 +1,27 @@
+.mat_header {
+    background-color: #536DFE;
+}
+
+.loginButton {
+    margin-right: 10px;
+    width: 8%;
+    padding: 6px;
+    background-color: #64DD17;
+    color: blanchedalmond;
+}
+
+.signUpButton {
+    margin-right: 10px;
+    width: 8%;
+    padding: 6px;
+    background-color: #FFA000;
+    color: blanchedalmond;
+}
+
+.logOutButton {
+    margin-right: 10px;
+    width: 8%;
+    padding: 6px;
+    background-color: #9E9E9E;
+    color: blanchedalmond;
+}

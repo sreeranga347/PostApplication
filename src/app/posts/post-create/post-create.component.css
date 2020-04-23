@@ -16,12 +16,14 @@ button{
     
 }
 .divClass{
+   
     display: inline-block; 
     align-content: center;
     margin: 0 auto; 
     width: 20%;
 }
 .divClassHeader{
+    margin-top: 22px;
     align-content: center;
     padding-top: 12px;
     padding-bottom: 12px;

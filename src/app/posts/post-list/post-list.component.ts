@@ -4,6 +4,7 @@ import { PostService } from '../post.service';
 import { MatTable } from '@angular/material/table';
 import { PostCreateComponent } from '../post-create/post-create.component';
 import { AlertService } from 'src/app/customeDialog/alert.service';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
 
@@ -16,10 +17,12 @@ export class PostListComponent implements OnInit {
   // posts: Post[] = [];
   posts: Post[] = [];
   post = new Post();
+  userId:string=null;
 
   constructor(private postService: PostService, private changeDetector: ChangeDetectorRef,private alertService:AlertService) { }
 
   ngOnInit(): void {
+    this.userId=localStorage.getItem("userId");
     this.postService.getPostListFromDb();
     this.getPostList()
   }
@@ -41,6 +44,8 @@ export class PostListComponent implements OnInit {
          this.alertService.openDialog(response['message'])
          this.postService.getPostListFromDb();
         
+        },error=>{
+          this.alertService.openDialog(error.error.message);
         });
     
   }

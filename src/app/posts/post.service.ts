@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Post } from './post';
-import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, of, Subject, BehaviorSubject, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -23,9 +23,9 @@ export class PostService {
             headers: httpHeaders
         }
         if (post._id) {
-            return this.http.put(this.configUrl + "/" + post._id, body, options)
+            return this.http.put(this.configUrl + "/" + post._id, body, options).pipe(catchError(this.handleError))
         } else {
-            return this.http.post(this.configUrl, body, options)
+            return this.http.post(this.configUrl, body, options).pipe(catchError(this.handleError))
         }
         
     }
@@ -36,7 +36,7 @@ export class PostService {
     }
 
     deletePost(post: Post) {
-         return this.http.delete(this.configUrl + "/" + post._id);
+         return this.http.delete(this.configUrl + "/" + post._id).pipe(catchError(this.handleError));
     }
 
     getPostObject() {
@@ -52,5 +52,11 @@ export class PostService {
             this.posts1.next(   JSON.parse(JSON.stringify( postData['posts'])))
       });
     }
+
+    
+  private handleError(error: Response) {
+    // let errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    return throwError(error)
+  }
 
 }

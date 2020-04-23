@@ -45,6 +45,8 @@ export class PostCreateComponent implements OnInit {
         this.alertService.openDialog(response['message'])
         this.resetForm();
         this.postService.getPostListFromDb();
+      },error=>{
+        this.alertService.openDialog(error.error.message)
       });
      
       }

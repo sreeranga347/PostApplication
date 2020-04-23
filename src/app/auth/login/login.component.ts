@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PostCreateComponent } from 'src/app/posts/post-create/post-create.component';
 import { AlertService } from 'src/app/customeDialog/alert.service';
 import { Router } from '@angular/router';
+import { error } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -21,16 +22,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    let userExit= this.authService.validateUser(this.user);
-    var msg;
-    if(userExit){
-      msg="login successful"
-      this.router.navigate(['/home'])
-    }else{
-      msg="Wrong email or password"
-    }
-    this.alertService.openDialog(msg);
-    
+    this.authService.authenticate(this.user).subscribe(response=> 
+      {
+        localStorage.setItem("token",response['token'])
+        localStorage.setItem("expiresIn",response['expiresIn'])
+        localStorage.setItem("userId",response['userId'])
+        this.authService.setLoging(true);
+        this.router.navigate(['/home'])
+      },
+      error=>{
+        this.alertService.openDialog(error.error.message);
+      }
+      )
   }
 
 }
